@@ -26,7 +26,8 @@ Major functionality of `dreamlet` package using the [Bioconductor](https://www.b
 
 
 ## Resources
- + [Preprint](https://doi.org/10.1101/2023.03.17.533005) on biorxiv
+ + Hoffman, et al. 2026. Efficient differential expression analysis of large-scale single-cell transcriptomics data using Dreamlet. <u>Nature Communications</u> [doi:10.1038/s41467-026-75680-8](https://doi.org/10.1038/s41467-026-75680-8)
+
  + Full [reproducible analysis code](https://github.com/GabrielHoffman/dreamlet_analysis) for 4 large-scale datasets
 
 ## Motivation
@@ -49,22 +50,32 @@ Dreamlet builds on previous work on variance partitioning and differential expre
 ## Install
 `dreamlet >= 1.0.0` is compatible with `BioC v3.18` for `R v4.3`.
 
-```r
-# 1) Make sure Bioconductor is installed
-# 2) Install dreamlet and dependencies:
-devtools::install_github("DiseaseNeurogenomics/dreamlet")
 
-# 3) Install zellkonverter >= v1.10.1
+### Install
+```r
+# Make sure Bioconductor is installed
+if (!require("BiocManager", quietly = TRUE)) {
+  install.packages("BiocManager")
+}
+
+# Install dreamlet and dependencies
+# Release version
+BiocManager::install('dreamlet')
+
+# Install zellkonverter >= v1.10.1
 BiocManager::install("zellkonverter")
+
+# Development version
+# BiocManager::install('DiseaseNeurogenomics/dreamlet')
 ```
+
 
 `dreamlet` is also compatible with earlier version of R and Bioconductor after installing these dependencies:
 
 ### Dependencies
 In case these aren't installed automatically:
 ```r
-devtools::install_github("DiseaseNeurogenomics/variancePartition")
-devtools::install_github("DiseaseNeurogenomics/zenith")
+BiocManager::install(c("variancePartition", "zenith"))
 ```
 
 
